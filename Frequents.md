@@ -28,6 +28,7 @@ This file carries the most frequent things in CPP
   | Base Class    | Yes             | Yes               | Yes            |
   | Derived Class | No              | Yes               | Yes            |
 
+
 ### Const
 
 *  **References**
@@ -56,6 +57,17 @@ This file carries the most frequent things in CPP
 * **Member Functions:**
 
    * Declaring a member function with the const keyword specifies that the function is a "read-only" function that doesn't modify the object for which it's called. 
-   * A constant member function can't modify any non-static data members or call any member functions that aren't constant.
+   * A constant member function:
+     - can't modify any non-static data members
+     - can't call any member functions that aren't constant.
    * To declare a constant member function, place the `const` keyword after the closing parenthesis of the argument list.
    * The `const` keyword is required in both the declaration and the definition.
+
+
+* **General**
+
+   * You can call either constant or non-constant member functions for a non-constant object. 
+
+* **Restrictions:**
+
+   * You can't declare constructors or destructors with the `const` keyword.
