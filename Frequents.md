@@ -119,10 +119,9 @@ This file carries the most frequent things in CPP
    * **Virtual Functions**
         + You can use the final keyword to designate virtual functions that cannot be overridden in a derived class.
 
-
    * **Class**
         + You can also use it to designate classes that cannot be inherited.
-
+        
 * **Restrictions**
 
   * Attempting to override a `final` virtual function or a base class would result in a compile time error. 
