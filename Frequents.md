@@ -39,7 +39,7 @@ This file carries the most frequent things in CPP
   
 
 
-*  **Values:**
+*  **Usage for Values:**
 
    * **Variable**
         + The `const` keyword specifies that a variable's value is constant and tells the compiler to prevent the programmer from modifying it.
@@ -54,7 +54,7 @@ This file carries the most frequent things in CPP
         + For objects that are declared as const, you can only call constant member functions. The compiler ensures that the constant object is never modified.
 
 
-* **Member Functions:**
+* **Usage for Member Functions:**
 
    * Declaring a member function with the const keyword specifies that the function is a "read-only" function that doesn't modify the object for which it's called. 
    * A constant member function:
@@ -94,10 +94,35 @@ This file carries the most frequent things in CPP
 
 *  **Usage:**
 
-   * You can use the override keyword in Derived Class as well as Base Class to designate member functions that override a virtual function in a base class. 
-   *  The example in the reference link clearly describes it.  
+   * You can use the `override` keyword in Derived Class as well as Base Class to designate member functions that override a virtual function in a base class. 
+   *  The example in the MSFT reference link clearly describes it.  
    *  When you use override, the compiler generates errors instead of silently creating unintended new member functions.
 
 * **Restrictions**
 
-  * `override` specifier ensures that the function is virtual and is overriding a virtual function from a base class. A compile-time error is generated) if this is not true. Meaning we CANNOT override a non-virtual method. 
+  * `override` specifier ensures that the function is virtual and is overriding a virtual function from a base class. A compile-time error is generated if this is not true. 
+  *  Meaning we CANNOT override a non-virtual method. 
+
+
+### Final
+
+*  **References**
+
+  | Description | Link| 
+  |---------------|-----------------|
+  | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/final-specifier?view=msvc-170 )            |
+  | CPP Ref  | [Link](https://en.cppreference.com/w/cpp/language/override )            |
+  
+
+*  **Usage:**
+
+   * **Virtual Functions**
+        + You can use the final keyword to designate virtual functions that cannot be overridden in a derived class.
+
+
+   * **Class**
+        + You can also use it to designate classes that cannot be inherited.
+
+* **Restrictions**
+
+  * Attempting to override a `final` virtual function or a base class would result in a compile time error. 
