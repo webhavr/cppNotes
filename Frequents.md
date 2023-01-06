@@ -66,8 +66,17 @@ This file carries the most frequent things in CPP
 
 * **General**
 
-   * You can call either constant or non-constant member functions for a non-constant object. 
+   * For a non-constant object, you can call either constant or non-constant member functions. 
 
 * **Restrictions:**
 
    * You can't declare constructors or destructors with the `const` keyword.
+
+
+### Constexpr
+
+*  **References**
+
+  | Description | Link| 
+  |---------------|-----------------|
+  | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/constexpr-cpp?view=msvc-170 )            |
