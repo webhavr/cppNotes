@@ -2,7 +2,7 @@
 
 This file carries the most frequent things in CPP
 
-#### Access Specifiers
+### Access Specifiers
 
 *   In C++, there are 3 access specifiers:
 
@@ -28,9 +28,9 @@ This file carries the most frequent things in CPP
         | Base Class    | Yes             | Yes               | Yes            |
         | Derived Class | No              | Yes               | Yes            |
 
-#### Const
+### Const
 
-*    References
+*  **References**
 
         | Description | Link| 
         |---------------|-----------------|
@@ -41,7 +41,7 @@ This file carries the most frequent things in CPP
 
    * **Variable**
         + The const keyword specifies that a variable's value is constant and tells the compiler to prevent the programmer from modifying it.
-        
+
 
    * **Pointer**
         + The const keyword can also be used in pointer declarations.
@@ -51,3 +51,10 @@ This file carries the most frequent things in CPP
    * **Object**
         + For objects that are declared as const, you can only call constant member functions. The compiler ensures that the constant object is never modified.
 
+
+  **Member Functions:**
+
+   * Declaring a member function with the const keyword specifies that the function is a "read-only" function that doesn't modify the object for which it's called. 
+   * A constant member function can't modify any non-static data members or call any member functions that aren't constant.
+   * To declare a constant member function, place the `const` keyword after the closing parenthesis of the argument list.
+   * The `const` keyword is required in both the declaration and the definition.
