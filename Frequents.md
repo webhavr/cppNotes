@@ -37,6 +37,7 @@ This file carries the most frequent things in CPP
         | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/const-cpp?view=msvc-170 )            |
         | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/const-cpp?view=msvc-170 )            |
 
+
 *  **Values:**
 
    * **Variable**
