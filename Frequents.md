@@ -41,12 +41,12 @@ This file carries the most frequent things in CPP
 *  **Values:**
 
    * **Variable**
-        + The const keyword specifies that a variable's value is constant and tells the compiler to prevent the programmer from modifying it.
+        + The `const` keyword specifies that a variable's value is constant and tells the compiler to prevent the programmer from modifying it.
 
 
    * **Pointer**
-        + The const keyword can also be used in pointer declarations.
-        + A pointer to a variable declared as const can be assigned only to a pointer that  is also declared as const.
+        + The `const` keyword can also be used in pointer declarations.
+        + A pointer to a variable declared as `const` can be assigned only to a pointer that  is also declared as `const`.
 
 
    * **Object**
