@@ -31,8 +31,6 @@ This file carries the most frequent things in CPP
 
 ### Const
 
-*  **References**
-
   | Description | Link| 
   |---------------|-----------------|
   | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/const-cpp?view=msvc-170 )            |
@@ -75,16 +73,12 @@ This file carries the most frequent things in CPP
 
 ### Constexpr
 
-*  **References**
-
   | Description | Link| 
   |---------------|-----------------|
   | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/constexpr-cpp?view=msvc-170 )            |
 
 
 ### Override
-
-*  **References**
 
   | Description | Link| 
   |---------------|-----------------|
@@ -106,8 +100,6 @@ This file carries the most frequent things in CPP
 
 ### Final
 
-*  **References**
-
   | Description | Link| 
   |---------------|-----------------|
   | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/final-specifier?view=msvc-170 )            |
@@ -128,8 +120,6 @@ This file carries the most frequent things in CPP
 
 
 ### Virtual
-
-*  **References**
 
   | Description | Link| 
   |---------------|-----------------|
