@@ -111,17 +111,44 @@ This file carries the most frequent things in CPP
   | Description | Link| 
   |---------------|-----------------|
   | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/final-specifier?view=msvc-170 )            |
-  | CPP Ref  | [Link](https://en.cppreference.com/w/cpp/language/override )            |
+  
   
 
 *  **Usage:**
 
    * **Virtual Functions**
-        + You can use the final keyword to designate virtual functions that cannot be overridden in a derived class.
+        + You can use the `final` keyword to designate virtual functions that cannot be overridden in a derived class.
 
    * **Class**
         + You can also use it to designate classes that cannot be inherited.
-        
+
 * **Restrictions**
 
   * Attempting to override a `final` virtual function or a base class would result in a compile time error. 
+
+
+### Virtual
+
+*  **References**
+
+  | Description | Link| 
+  |---------------|-----------------|
+  | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/virtual-functions?view=msvc-170 )            |
+  
+  
+
+*  **General:**
+
+   * A virtual function is a member function that you expect to be redefined in derived classes.
+   * Virtual functions ensure that the correct function is called for an object, regardless of the expression used to make the function call. 
+
+* **Usage**
+
+  * When you refer to a derived class object using a pointer or a reference to the base class, you can call a virtual function for that object and execute the derived class's version of the function
+  * The function from the derived class is invoked for objects of the derived class, even if it is called using a pointer or reference to the base class.
+  * If a class is declared that does not provide an overriding implementation of the Base Class function, the default implementation from the base class is used.
+  
+* **Restrictions**
+
+  * Functions in derived classes override virtual functions in base classes only if their type is the same. A function in a derived class cannot differ from a virtual function in a base class in its return type only; the argument list must differ as well.
+  * Because virtual functions are called only for objects of class types, you cannot declare global or static functions as virtual.
