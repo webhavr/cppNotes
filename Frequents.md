@@ -80,3 +80,26 @@ This file carries the most frequent things in CPP
   | Description | Link| 
   |---------------|-----------------|
   | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/constexpr-cpp?view=msvc-170 )            |
+
+
+### Override
+
+*  **References**
+
+  | Description | Link| 
+  |---------------|-----------------|
+  | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/override-specifier?view=msvc-170 )            |
+  | CPP Ref  | [Link](https://en.cppreference.com/w/cpp/language/override )            |
+  
+
+*  **Usage:**
+
+   * You can use the override keyword in Derived Class as well as Base Class to designate member functions that override a virtual function in a base class.
+   
+   *  The example in the reference link clearly describes it.  
+   
+   *  When you use override, the compiler generates errors instead of silently creating unintended new member functions.
+
+* **Restrictions**
+
+  * `override` specifier ensures that the function is virtual and is overriding a virtual function from a base class. A compile-time error is generated) if this is not true. Meaning we CANNOT override a non-virtual method. 
