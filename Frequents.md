@@ -52,7 +52,7 @@ This file carries the most frequent things in CPP
         + For objects that are declared as const, you can only call constant member functions. The compiler ensures that the constant object is never modified.
 
 
-  **Member Functions:**
+* **Member Functions:**
 
    * Declaring a member function with the const keyword specifies that the function is a "read-only" function that doesn't modify the object for which it's called. 
    * A constant member function can't modify any non-static data members or call any member functions that aren't constant.
