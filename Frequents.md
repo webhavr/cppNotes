@@ -94,10 +94,8 @@ This file carries the most frequent things in CPP
 
 *  **Usage:**
 
-   * You can use the override keyword in Derived Class as well as Base Class to designate member functions that override a virtual function in a base class.
-   
+   * You can use the override keyword in Derived Class as well as Base Class to designate member functions that override a virtual function in a base class. 
    *  The example in the reference link clearly describes it.  
-   
    *  When you use override, the compiler generates errors instead of silently creating unintended new member functions.
 
 * **Restrictions**
