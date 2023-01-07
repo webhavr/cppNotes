@@ -1,84 +1,78 @@
 # Smart Pointers
 
-	1. Smart Pointers in C++:
-	
-		a. Problem with Normal Pointers:
-			i. A pointer may or may not point to an object
-			ii. A pointer does not indicate who owns the object
-			iii. Smart Pointers are used to express ownership
+1. Smart Pointers in C++
+   
+    *   Problem with Normal Pointers:
+        *   A pointer may or may not point to an object
+        *   A pointer does not indicate who owns the object
+        *   Smart Pointers are used to express ownership
 
-		b. 3 Types of Smart Pointers:
+	*   3 Types of Smart Pointers:
 
-			Unique_ptr	Represents exclusive ownership
-			Shared_ptr	Represents shared ownership
-			Weak_Ptr	To break loops in circular shared data structures
+        | Description | Link                                              |
+        | ----------- | ------------------------------------------------- |
+        | Unique_ptr  | Represents exclusive ownership                    |
+        | Shared_ptr  | Represents shared ownership                       |
+        | Weak_ptr    | To break loops in circular shared data structures |
+        
 			
-		c. We can make pointers to work in a way that many normal pointers can't do
+    *   We can make pointers to work in a way that many normal pointers can't do
+	    *  Automatic Pointer Destruction
+		*  Reference Counting
+			
+	*   Idea:
+		* Make another class with
+          - Pointer
+          -  Destructor
+          -  Overloaded Operators *	->
+	
+	
+	
+2. Smart Pointer Implementation:
+
+    *   There are 8 major things to implement in a Smart Pointer Implementation:
 		
-			i. Automatic Pointer Destruction
-			ii. Reference Counting
-			
-		d. Idea:
-			i. Make another class with
-				1) Pointer
-				2) Destructor
-				3) Overloaded Operators	*	->
-	
-	
-	
-	2. Smart Pointer Implementation:
+		1. Empty Constructor
 
-		a.  There are 8 major things to implement in a Smart Pointer Implementation:
-		
-			i. 1. Empty Constructor
+		2. Explicit Constructor
 
-			2. Explicit Constructor
+		3. Destructor
 
-			3. Destructor
+		4. Null Pointer Semantics
 
-			4. Null Pointer Semantics
+		5. Move Semantics:
+			1. Move Constructor
+			2. Move Assignment
 
-			5. Move Semantics:
-			        1. Move Constructor
-			        2. Move Assignment
+		6. Copy Semantics:
+			1. Copy Constructor
+			2. Copy Assignment
 
-			6. Copy Semantics:
-			        1. Copy Constructor
-			        2. Copy Assignment
+		7. Operator Overloading:
+		    1. For Dereferencing operator
+			2. For Arrow operator
 
-			7. Operator Overloading:
-			        1. For Dereferencing operator
-			        2. For Arrow operator
+		8. Others:
+			1. Get
+      		2. Swap
 
-			8. Others:
-			        1. Get
-			        2. Swap
-			
+
     ![Sp1](./images/smartPointer/sp_1.png)
-		
-	
-		
 
-		
-		
+    ![Sp2](./images/smartPointer/sp_2.png)
 
+    ![Sp3](./images/smartPointer/sp_3.png)
 
-		
-		
+    ![Sp4](./images/smartPointer/sp_4.png)
 
+    ![Sp5](./images/smartPointer/sp_5.png)
 
-		
-		
+    ![Sp6](./images/smartPointer/sp_6.png)
 
+    
+				
 
-		
-		
-
-
-		
-		
-
-	3. Shared Pointer:
+3. Shared Pointer:
 
 		a. Referenced-counted Smart Pointer
 		b. A count is kept as to how many shared_ptrs are pointing to the managed object
