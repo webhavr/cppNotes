@@ -71,8 +71,6 @@
 
     ![Sp6](./images/smartPointer/sp_6.png)
 
-    
-				
 
 ### Shared Pointer:
 
@@ -119,11 +117,12 @@
   *  ![Sp9](./images/smartPointer/sp_9.png)	
 		
   * Any of the Shared or Weak pointer is destroyed:
+  
 	* Whenever a shared_ptr is destroyed, or reassigned to point to a different object, the shared_ptr destructor or assignment operator decrements the shared count in the manager object
+  
 	* If the shared count reaches 0, the shared_ptr destructor deletes the managed object, and sets the pointer to 0. However, if the weak count is greater than 0 at this point, manager object will still be in existence, even if managed object has been deleted
 
 		* Managed Object lifetime - 	As long as the shared count is greater than zero
-
 		* Manager object lifetime - 	As long as any of the shared count and weak count - both are greater than zero
 			
 			
