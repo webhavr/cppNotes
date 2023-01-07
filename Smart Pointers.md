@@ -1,5 +1,8 @@
 # Smart Pointers
 
+### PDF
+[Smart Pointer](./docs/Smart%20Pointers%20C++.pdf)
+
 ### Smart Pointers in C++
    
 *   Problem with Normal Pointers:
