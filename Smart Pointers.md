@@ -54,7 +54,7 @@
 			        1. Get
 			        2. Swap
 			
-
+    ![Sp1](./images/smartPointer/sp_1.png)
 		
 	
 		
