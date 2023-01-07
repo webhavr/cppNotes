@@ -1,60 +1,62 @@
 # Smart Pointers
 
-1. Smart Pointers in C++
+### Smart Pointers in C++
    
-    *   Problem with Normal Pointers:
-        *   A pointer may or may not point to an object
-        *   A pointer does not indicate who owns the object
-        *   Smart Pointers are used to express ownership
+*   Problem with Normal Pointers:
+    *   A pointer may or may not point to an object
+    *   A pointer does not indicate who owns the object
+    *   Smart Pointers are used to express ownership
 
-	*   3 Types of Smart Pointers:
+*   3 Types of Smart Pointers:
 
-        | Description | Link                                              |
-        | ----------- | ------------------------------------------------- |
-        | Unique_ptr  | Represents exclusive ownership                    |
-        | Shared_ptr  | Represents shared ownership                       |
-        | Weak_ptr    | To break loops in circular shared data structures |
+    | Description | Link                                              |
+    | ----------- | ------------------------------------------------- |
+    | Unique_ptr  | Represents exclusive ownership                    |
+    | Shared_ptr  | Represents shared ownership                       |
+    | Weak_ptr    | To break loops in circular shared data structures |
+    
         
-			
-    *   We can make pointers to work in a way that many normal pointers can't do
-	    *  Automatic Pointer Destruction
-		*  Reference Counting
-			
-	*   Idea:
-		* Make another class with
-          - Pointer
-          -  Destructor
-          -  Overloaded Operators *	->
+*   We can make pointers to work in a way that many normal pointers can't do
+    *  Automatic Pointer Destruction
+    *  Reference Counting
+        
+*   Idea:
+    * Make another class with
+        - Pointer
+        -  Destructor
+        -  Overloaded Operators *	->
 	
 	
 	
-2. Smart Pointer Implementation:
+### Smart Pointer Implementation:
 
-    *   There are 8 major things to implement in a Smart Pointer Implementation:
-		
-		1. Empty Constructor
+*   There are 8 major things to implement in a Smart Pointer Implementation:
+    
+    1. Empty Constructor
 
-		2. Explicit Constructor
+    2. Explicit Constructor
 
-		3. Destructor
+    3. Destructor
 
-		4. Null Pointer Semantics
+    4. Null Pointer Semantics
 
-		5. Move Semantics:
-			1. Move Constructor
-			2. Move Assignment
+    5. Move Semantics:
+        1. Move Constructor
+        2. Move Assignment
 
-		6. Copy Semantics:
-			1. Copy Constructor
-			2. Copy Assignment
+    6. Copy Semantics:
+        1. Copy Constructor
+        2. Copy Assignment
 
-		7. Operator Overloading:
-		    1. For Dereferencing operator
-			2. For Arrow operator
+    7. Operator Overloading:
+        1. For Dereferencing operator
+        2. For Arrow operator
 
-		8. Others:
-			1. Get
-      		2. Swap
+    8. Others:
+        1. Get
+      	2. Swap 
+   
+*   Images:
 
 
     ![Sp1](./images/smartPointer/sp_1.png)
@@ -72,7 +74,7 @@
     
 				
 
-3. Shared Pointer:
+### Shared Pointer:
 
 		a. Referenced-counted Smart Pointer
 		b. A count is kept as to how many shared_ptrs are pointing to the managed object
@@ -80,7 +82,7 @@
 		d. Called a shared_ptr because ownership of the object is shared among shared_ptrs
 		e. Any one shared_ptr can keep the managed object alive. Object deleted only when last shared_ptr goes out of scope
 	
-	4. Problems with Shared pointer:
+	1. Problems with Shared pointer:
 		a. With referenced-counted shared_ptrs, if there is a ring or cycle, then shared_ptrs can keep each other alive
 		b. Objects will be alive even if no other shared_ptrs are not pointing to the managed object from the outside universe
 		
@@ -92,11 +94,11 @@
 
 
 			iv. 
-	5. Weak Pointers:
+### Weak Pointers:
 		a. Unlike, raw pointers, weak pointers have an advantage that they know whether the managed object is still in existence or not
 		b. Weak pointer can look at the manager object and can tell whether the managed object is still in existence or has died
 		
-	6. Flow of Shared and Weak Pointers:
+	2. Flow of Shared and Weak Pointers:
 
 		a. Firstly:
 			i. The process starts when the first shared pointer(sp1) is created to point to a managed object
@@ -206,7 +208,7 @@
 			
 			
 			
-	11. Unique Pointer:
+### Unique Pointer:
 
 		i. Owns the object to which it points to. Has the obligation to destroy the pointed object after the scope
 		
@@ -219,7 +221,7 @@
 		iii. It stores a pointer and deletes the object pointed to using the associated deleter
 
 		iv. Uses:
-			1) Returning dynamically allocated memory from a function
+			5) Returning dynamically allocated memory from a function
 
 
 		
