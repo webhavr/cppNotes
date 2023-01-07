@@ -56,7 +56,7 @@
         1. Get
       	2. Swap 
    
-*   Images:
+*   **Images**:
 
 
     ![Sp1](./images/smartPointer/sp_1.png)
@@ -76,24 +76,22 @@
 
 ### Shared Pointer:
 
-		a. Referenced-counted Smart Pointer
-		b. A count is kept as to how many shared_ptrs are pointing to the managed object
-		c. When the last shared_ptr is destroyed, and count goes to zero, the managed object is automatically deleted
-		d. Called a shared_ptr because ownership of the object is shared among shared_ptrs
-		e. Any one shared_ptr can keep the managed object alive. Object deleted only when last shared_ptr goes out of scope
-	
-	1. Problems with Shared pointer:
-		a. With referenced-counted shared_ptrs, if there is a ring or cycle, then shared_ptrs can keep each other alive
-		b. Objects will be alive even if no other shared_ptrs are not pointing to the managed object from the outside universe
-		
-		c. 
-		d. Solution to the Ring Problem:
-			i. We can use Weak Pointers over here. 
-			ii. They only observe an object but do not influence the lifetime and existence of the object
-			iii. If ring of objects point to each other with weak pointers, then when last shared_pointer from outside universe goes out of scope, the managed object will get deleted
+*  Referenced-counted Smart Pointer
+*  A count is kept as to how many shared_ptrs are pointing to the managed object
+*  When the last shared_ptr is destroyed, and count goes to zero, the managed object is automatically deleted
+*  Called a shared_ptr because ownership of the object is shared among shared_ptrs
+*  Any one shared_ptr can keep the managed object alive. Object deleted only when last shared_ptr goes out of scope
 
+* Problems with Shared pointer:
+	* With referenced-counted shared_ptrs, if there is a ring or cycle, then shared_ptrs can keep each other alive
 
-			iv. 
+	* Objects will be alive even if no other shared_ptrs are not pointing to the managed object from the outside universe
+
+	* Solution to the Ring Problem:
+		* We can use Weak Pointers over here. 
+		* They only observe an object but do not influence the lifetime and existence of the object
+		* If ring of objects point to each other with weak pointers, then when last shared_pointer from outside universe goes out of scope, the managed object will get deleted
+
 ### Weak Pointers:
 		a. Unlike, raw pointers, weak pointers have an advantage that they know whether the managed object is still in existence or not
 		b. Weak pointer can look at the manager object and can tell whether the managed object is still in existence or has died
@@ -111,11 +109,7 @@
 			
 		c. Likewise:
 			i. If another weak pointer is created by copy or assignment from another shared pointer or weak pointer, it also points to the same manager object
-			ii. Again, reference count is incremented, but this time for the weak count
-			
-
-
-					
+			ii. Again, reference count is incremented, but this time for the weak count		
 			
 		d. Any of the Shared or Weak pointer is destroyed:
 			i. Whenever a shared_ptr is destroyed, or reassigned to point to a different object, the shared_ptr destructor or assignment operator decrements the shared count in the manager object
@@ -124,7 +118,6 @@
 					a) Managed Object lifetime	As long as the shared count is greater than zero
 
 					Manager object lifetime	As long as any of the shared count and weak count - both are greater than zero
-
 			
 			
 	7. Fundamental difference between shared and weak pointers:
