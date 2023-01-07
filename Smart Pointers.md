@@ -101,16 +101,16 @@
 
 ### Flow of Shared and Weak Pointers:
 
-  * Firstly:
+  * **Firstly:**
 	* The process starts when the first shared pointer(sp1) is created to point to a managed object
 	* Sp1 creates a manager object pointing to this managed object
 	* Manager object also contains the reference counts for other shared pointers and weak pointers
 
-  * Secondly:
+  * **Secondly:**
 	* If another shared pointer(sp2) is created by copy or assignment from sp1, then it also points to the same manager object
 	* At this moment, reference count is incremented for the shared count
 		
-  * Likewise:
+  * **Likewise:**
 	* If another weak pointer is created by copy or assignment from another shared pointer or weak pointer, it also points to the same manager object
 	* Again, reference count is incremented, but this time for the weak count
 
@@ -127,23 +127,48 @@
 			
 			
 ### Fundamental difference between shared and weak pointers:
-		a. Shared_ptr can be used syntactically almost identically to a built-in pointer
-		b. You can basically do only 2 things with the weak pointer:
-			i. Check whether the managed object is still in existence or not
-			ii. If the managed object is still in existence, you may create a shared_ptr from the weak pointer
+  * Shared_ptr can be used syntactically almost identically to a built-in pointer
+  * You can basically do only 2 things with the weak pointer:
+    * Check whether the managed object is still in existence or not
+    * If the managed object is still in existence, you may create a shared_ptr from the weak pointer
 		
 ### Restrictions in using shared_ptr and weak_ptr:
-		a. It should always be ensured that there is only one manager object for the managed object
-		b. Meaning, only the first shared pointer creates the manager object
-		c. And then, all other shared and weak pointer afterwards are created from the first shared pointer only
-		d. To ensure this, the shared_ptr should always be initialized using the "make_shared" function
+  * It should always be ensured that there is only one manager object for the managed object
+  * Meaning, only the first shared pointer creates the manager object
+	* And then, all other shared and weak pointer afterwards are created from the first shared pointer only
+	* To ensure this, the shared_ptr should always be initialized using the "make_shared" function
 	
 	
 	
 ### Using the shared_ptr:
-	
-		
-			
+
+*  ![Sp10](./images/smartPointer/sp_10.png)
+  
+
+*  ![Sp11](./images/smartPointer/sp_11.png)
+
+
+*  ![Sp12](./images/smartPointer/sp_12.png)
+
+
+*  ![Sp13](./images/smartPointer/sp_13.png)
+
+
+*  ![Sp14](./images/smartPointer/sp_14.png)	
+
+
+*  ![Sp15](./images/smartPointer/sp_15.png)	
+
+
+*  ![Sp16](./images/smartPointer/sp_16.png)	
+
+
+*  ![Sp17](./images/smartPointer/sp_17.png)	
+
+
+*  ![Sp18](./images/smartPointer/sp_18.png)	
+
+
 			
 
 		
