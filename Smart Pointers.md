@@ -189,68 +189,54 @@
 *  ![Sp24](./images/smartPointer/sp_24.png)	
 	
 			
-			
-			
-			
-			
 ### Unique Pointer:
 
-		i. Owns the object to which it points to. Has the obligation to destroy the pointed object after the scope
+*	Owns the object to which it points to. Has the obligation to destroy the pointed object after the scope
 		
-		ii. Unique Ownership - Unique Pointer cannot be copied:
-			1) Does not have a copy constructor
-			2) Does not have a Copy Assignment
-			3) Has Move Constructor and Move Assignment
-			4) In case of Move Assignment, the original pointer is lost and no longer owns the original object
+*	Unique Ownership - Unique Pointer cannot be copied:
+	*	Does not have a copy constructor
+	*	Does not have a Copy Assignment
+	*	Has Move Constructor and Move Assignment
+	*	In case of Move Assignment, the original pointer is lost and no longer owns the original object
 
-		iii. It stores a pointer and deletes the object pointed to using the associated deleter
+*	It stores a pointer and deletes the object pointed to using the associated deleter
 
-		iv. Uses:
-			5) Returning dynamically allocated memory from a function
+*	Uses:
+	*	Returning dynamically allocated memory from a function
 
-
-		
+    *  ![Sp25](./images/smartPointer/sp_25.png)	
 	
-	12. Benefits of Unique Pointer over shared pointer:
+*	Benefits of Unique Pointer over shared pointer:
 		i. Unique pointer has no overhead - it only carries the underlying object pointer
 		ii. Shared Pointer
 			1) It carries the overhead of the manager object
 			2) Overhead of increasing and decreasing the reference count
 			
-	13. Usage Of Unique Pointers:
+### Usage Of Unique Pointers:
 		
-		1. Move Constructor:
-		
-			
-		
-			
-			
-			
-			
-		2. Copy Assignment:
-		
-		
-		
-		
-		
-		
-	
-		
-		
-		
-		
-		1. Copy Constructor:
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-		4. Move Assignment:
+*	Move Constructor:
+
+	*  ![Sp26](./images/smartPointer/sp_26.png)	
+
+    *  ![Sp27](./images/smartPointer/sp_27.png)	
+
+*	Copy Assignment:
+
+	*  ![Sp28](./images/smartPointer/sp_28.png)	
+
+    *  ![Sp29](./images/smartPointer/sp_29.png)	
+
+*	Copy Constructor:
+
+	*  ![Sp30](./images/smartPointer/sp_30.png)	
+
+    *  ![Sp31](./images/smartPointer/sp_31.png)	
+  
+*	Move Assignment:
+
+	*  ![Sp32](./images/smartPointer/sp_32.png)	
+
+    *  ![Sp33](./images/smartPointer/sp_33.png)	
 
 		
 		
