@@ -9,14 +9,14 @@ This file carries the most frequent things in CPP
 *   **Private inheritance:**
 
   | Accessibility | Private Members | Protected Members        | Public Members |
-  |---------------|-----------------|--------------------------|----------------|
+  | ------------- | --------------- | ------------------------ | -------------- |
   | Base Class    | Yes             | Yes                      | Yes            |
   | Derived Class | No              | Yes (as private members) | Yes            |
 
 *   **Protected inheritance   :**
 
   | Accessibility | Private Members | Protected Members | Public Members             |
-  |---------------|-----------------|-------------------|----------------------------|
+  | ------------- | --------------- | ----------------- | -------------------------- |
   | Base Class    | Yes             | Yes               | Yes                        |
   | Derived Class | No              | Yes               | Yes(inherited as protected |
   |               |                 |                   | variables)                 |
@@ -24,16 +24,16 @@ This file carries the most frequent things in CPP
 *   **Public inheritance:**
 
   | Accessibility | Private Members | Protected Members | Public Members |
-  |---------------|-----------------|-------------------|----------------|
+  | ------------- | --------------- | ----------------- | -------------- |
   | Base Class    | Yes             | Yes               | Yes            |
   | Derived Class | No              | Yes               | Yes            |
 
 
 ### Const
 
-  | Description | Link| 
-  |---------------|-----------------|
-  | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/const-cpp?view=msvc-170 )            |
+  | Description | Link                                                                       |
+  | ----------- | -------------------------------------------------------------------------- |
+  | Msft        | [Link](https://learn.microsoft.com/en-us/cpp/cpp/const-cpp?view=msvc-170 ) |
   
 
 
@@ -73,17 +73,17 @@ This file carries the most frequent things in CPP
 
 ### Constexpr
 
-  | Description | Link| 
-  |---------------|-----------------|
-  | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/constexpr-cpp?view=msvc-170 )            |
+  | Description | Link                                                                           |
+  | ----------- | ------------------------------------------------------------------------------ |
+  | Msft        | [Link](https://learn.microsoft.com/en-us/cpp/cpp/constexpr-cpp?view=msvc-170 ) |
 
 
 ### Override
 
-  | Description | Link| 
-  |---------------|-----------------|
-  | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/override-specifier?view=msvc-170 )            |
-  | CPP Ref  | [Link](https://en.cppreference.com/w/cpp/language/override )            |
+  | Description | Link                                                                                |
+  | ----------- | ----------------------------------------------------------------------------------- |
+  | Msft        | [Link](https://learn.microsoft.com/en-us/cpp/cpp/override-specifier?view=msvc-170 ) |
+  | CPP Ref     | [Link](https://en.cppreference.com/w/cpp/language/override )                        |
   
 
 *  **Usage:**
@@ -100,9 +100,9 @@ This file carries the most frequent things in CPP
 
 ### Final
 
-  | Description | Link| 
-  |---------------|-----------------|
-  | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/final-specifier?view=msvc-170 )            |
+  | Description | Link                                                                             |
+  | ----------- | -------------------------------------------------------------------------------- |
+  | Msft        | [Link](https://learn.microsoft.com/en-us/cpp/cpp/final-specifier?view=msvc-170 ) |
   
   
 
@@ -121,9 +121,9 @@ This file carries the most frequent things in CPP
 
 ### Virtual
 
-  | Description | Link| 
-  |---------------|-----------------|
-  | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/virtual-functions?view=msvc-170 )            |
+  | Description | Link                                                                               |
+  | ----------- | ---------------------------------------------------------------------------------- |
+  | Msft        | [Link](https://learn.microsoft.com/en-us/cpp/cpp/virtual-functions?view=msvc-170 ) |
   
   
 
@@ -146,10 +146,10 @@ This file carries the most frequent things in CPP
 
 ### Static
 
-  | Description | Link| 
-  |---------------|-----------------|
-  | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/static-members-cpp?view=msvc-170 )            |
-  | IBM  | [Link](https://www.ibm.com/docs/en/zos/2.4.0?topic=only-static-data-members-c )            |
+  | Description | Link                                                                                |
+  | ----------- | ----------------------------------------------------------------------------------- |
+  | Msft        | [Link](https://learn.microsoft.com/en-us/cpp/cpp/static-members-cpp?view=msvc-170 ) |
+  | IBM         | [Link](https://www.ibm.com/docs/en/zos/2.4.0?topic=only-static-data-members-c )     |
   
 
 * Classes can contain:
@@ -192,3 +192,4 @@ This file carries the most frequent things in CPP
   
   
 
+![Sp1](./images/smartPointer/sp_1.png)
