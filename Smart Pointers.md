@@ -207,32 +207,32 @@
     *  ![Sp25](./images/smartPointer/sp_25.png)	
 	
 *	Benefits of Unique Pointer over shared pointer:
-		i. Unique pointer has no overhead - it only carries the underlying object pointer
-		ii. Shared Pointer
-			1) It carries the overhead of the manager object
-			2) Overhead of increasing and decreasing the reference count
+	*	Unique pointer has no overhead - it only carries the underlying object pointer
+	*	Shared Pointer
+		*	It carries the overhead of the manager object
+		*	Overhead of increasing and decreasing the reference count
 			
 ### Usage Of Unique Pointers:
 		
-*	Move Constructor:
+*	**Move Constructor:**
 
 	*  ![Sp26](./images/smartPointer/sp_26.png)	
 
     *  ![Sp27](./images/smartPointer/sp_27.png)	
 
-*	Copy Assignment:
+*	**Copy Assignment:**
 
 	*  ![Sp28](./images/smartPointer/sp_28.png)	
 
     *  ![Sp29](./images/smartPointer/sp_29.png)	
 
-*	Copy Constructor:
+*	**Copy Constructor:**
 
 	*  ![Sp30](./images/smartPointer/sp_30.png)	
 
     *  ![Sp31](./images/smartPointer/sp_31.png)	
   
-*	Move Assignment:
+*	**Move Assignment:**
 
 	*  ![Sp32](./images/smartPointer/sp_32.png)	
 
