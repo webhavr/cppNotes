@@ -142,3 +142,54 @@ This file carries the most frequent things in CPP
 
   * Functions in derived classes override virtual functions in base classes only if their type is the same. A function in a derived class cannot differ from a virtual function in a base class in its return type only; the argument list must differ as well.
   * Because virtual functions are called only for objects of class types, you cannot declare global or static functions as virtual.
+
+
+### Static
+
+  | Description | Link| 
+  |---------------|-----------------|
+  | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/static-members-cpp?view=msvc-170 )            |
+  | IBM  | [Link](https://www.ibm.com/docs/en/zos/2.4.0?topic=only-static-data-members-c )            |
+  
+*  **General:**
+
+* Classes can contain:
+  * Static Data Members
+  * Static Member Functions 
+
+* **Static Data Members**
+
+  * When a data member is declared as static, only one copy of the data is maintained for all objects of the class.
+  * Static data members are not part of objects of a given class type. They belong to the whole class. 
+   
+  * **Definition**
+    * Declaration of a static data member is not considered a definition. 
+    * The data member is declared in class scope, but definition is performed  at file scope. 
+  
+  * **Usage**
+    * Static data members can be referred to without referring to an object of class type
+    * For the static member to exist, it is not necessary that any objects of the class type exist.
+  
+  * **Restrictions**
+    * A static data member can be of any type except for void or void qualified with const or volatile
+    * You cannot declare a static data member as mutable.
+    * You can only have one definition of a static member in a program.
+
+* **Static Member Functions**
+  
+  * **Definition** 
+    * Unlike static member data, static member functions can be defined in class scope.  
+  
+  **Usage**
+    * Like static data members, you may access a static member function f() of a class A without using an object of class A.
+    * For the static member function to exist, it is not necessary that any objects of the class type exist.
+
+  * **Restrictions**
+    * You cannot have static and nonstatic member functions with the same names and the same number and type of arguments.
+    * A static member function does not have a this pointer, since it is not associated with any class object
+    * You can only have one definition of a static member in a program.
+    * A static member function can access only the names of static members, enumerators, and nested types of the class in which it is declared.
+
+  
+  
+
