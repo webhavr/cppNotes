@@ -168,65 +168,26 @@
 
 *  ![Sp18](./images/smartPointer/sp_18.png)	
 
-
-			
-
-		
-		
-	
-		
-
-			
-			
-			
-			
-		
-			
-			
-			
-			
-			
-			
-			
-		
-			
-			
-
-
-			
-			
-
-
-		
-			
-			
-
-			
-			
-			
-			
-			
-			
 			
 ### Using the weak_ptr:
+			
+*  ![Sp19](./images/smartPointer/sp_19.png)
+  
 
-		a. 
-		
+*  ![Sp20](./images/smartPointer/sp_20.png)
 
 
-		b. 
-			
-			
-		c. 
-			
-			
-			
-			
-			
-			
-		d. 
-			
-			
+*  ![Sp21](./images/smartPointer/sp_21.png)
+
+
+*  ![Sp22](./images/smartPointer/sp_22.png)
+
+
+*  ![Sp23](./images/smartPointer/sp_23.png)	
+
+
+*  ![Sp24](./images/smartPointer/sp_24.png)	
+	
 			
 			
 			
