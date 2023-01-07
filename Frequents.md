@@ -190,6 +190,3 @@ This file carries the most frequent things in CPP
     * A static member function can access only the names of static members, enumerators, and nested types of the class in which it is declared.
 
   
-  
-
-![Sp1](./images/smartPointer/sp_1.png)
