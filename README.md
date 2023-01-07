@@ -1,2 +1,2 @@
 # cppNotes
-My personal CPP Notes for future. 
+My personal CPP Notes. 
