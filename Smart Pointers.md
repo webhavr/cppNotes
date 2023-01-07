@@ -87,46 +87,53 @@
 
 	* Objects will be alive even if no other shared_ptrs are not pointing to the managed object from the outside universe
 
+	* ![Sp7](./images/smartPointer/sp_7.png)
+
 	* Solution to the Ring Problem:
 		* We can use Weak Pointers over here. 
 		* They only observe an object but do not influence the lifetime and existence of the object
 		* If ring of objects point to each other with weak pointers, then when last shared_pointer from outside universe goes out of scope, the managed object will get deleted
+  
+	* ![Sp8](./images/smartPointer/sp_8.png)
 
 ### Weak Pointers:
-		a. Unlike, raw pointers, weak pointers have an advantage that they know whether the managed object is still in existence or not
-		b. Weak pointer can look at the manager object and can tell whether the managed object is still in existence or has died
+
+  * Unlike, raw pointers, weak pointers have an advantage that they know whether the managed object is still in existence or not
+  * Weak pointer can look at the manager object and can tell whether the managed object is still in existence or has died
+
+### Flow of Shared and Weak Pointers:
+
+  * Firstly:
+	* The process starts when the first shared pointer(sp1) is created to point to a managed object
+	* Sp1 creates a manager object pointing to this managed object
+	* Manager object also contains the reference counts for other shared pointers and weak pointers
+
+  * Secondly:
+	* If another shared pointer(sp2) is created by copy or assignment from sp1, then it also points to the same manager object
+	* At this moment, reference count is incremented for the shared count
 		
-	2. Flow of Shared and Weak Pointers:
+  * Likewise:
+	* If another weak pointer is created by copy or assignment from another shared pointer or weak pointer, it also points to the same manager object
+	* Again, reference count is incremented, but this time for the weak count
 
-		a. Firstly:
-			i. The process starts when the first shared pointer(sp1) is created to point to a managed object
-			ii. Sp1 creates a manager object pointing to this managed object
-			iii. Manager object also contains the reference counts for other shared pointers and weak pointers
+  *  ![Sp9](./images/smartPointer/sp_9.png)	
+		
+  * Any of the Shared or Weak pointer is destroyed:
+	* Whenever a shared_ptr is destroyed, or reassigned to point to a different object, the shared_ptr destructor or assignment operator decrements the shared count in the manager object
+	* If the shared count reaches 0, the shared_ptr destructor deletes the managed object, and sets the pointer to 0. However, if the weak count is greater than 0 at this point, manager object will still be in existence, even if managed object has been deleted
 
-		b. Secondly:
-			i. If another shared pointer(sp2) is created by copy or assignment from sp1, then it also points to the same manager object
-			ii. At this moment, reference count is incremented for the shared count
-			
-		c. Likewise:
-			i. If another weak pointer is created by copy or assignment from another shared pointer or weak pointer, it also points to the same manager object
-			ii. Again, reference count is incremented, but this time for the weak count		
-			
-		d. Any of the Shared or Weak pointer is destroyed:
-			i. Whenever a shared_ptr is destroyed, or reassigned to point to a different object, the shared_ptr destructor or assignment operator decrements the shared count in the manager object
-			ii. If the shared count reaches 0, the shared_ptr destructor deletes the managed object, and sets the pointer to 0. However, if the weak count is greater than 0 at this point, manager object will still be in existence, even if managed object has been deleted
+		* Managed Object lifetime - 	As long as the shared count is greater than zero
 
-					a) Managed Object lifetime	As long as the shared count is greater than zero
-
-					Manager object lifetime	As long as any of the shared count and weak count - both are greater than zero
+		* Manager object lifetime - 	As long as any of the shared count and weak count - both are greater than zero
 			
 			
-	7. Fundamental difference between shared and weak pointers:
+### Fundamental difference between shared and weak pointers:
 		a. Shared_ptr can be used syntactically almost identically to a built-in pointer
 		b. You can basically do only 2 things with the weak pointer:
 			i. Check whether the managed object is still in existence or not
 			ii. If the managed object is still in existence, you may create a shared_ptr from the weak pointer
 		
-	8. Restrictions in using shared_ptr and weak_ptr:
+### Restrictions in using shared_ptr and weak_ptr:
 		a. It should always be ensured that there is only one manager object for the managed object
 		b. Meaning, only the first shared pointer creates the manager object
 		c. And then, all other shared and weak pointer afterwards are created from the first shared pointer only
@@ -134,7 +141,7 @@
 	
 	
 	
-	9. Using the shared_ptr:
+### Using the shared_ptr:
 	
 		
 			
@@ -177,7 +184,7 @@
 			
 			
 			
-	10. Using the weak_ptr:
+### Using the weak_ptr:
 
 		a. 
 		
