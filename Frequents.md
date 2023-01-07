@@ -151,7 +151,6 @@ This file carries the most frequent things in CPP
   | Msft  | [Link](https://learn.microsoft.com/en-us/cpp/cpp/static-members-cpp?view=msvc-170 )            |
   | IBM  | [Link](https://www.ibm.com/docs/en/zos/2.4.0?topic=only-static-data-members-c )            |
   
-*  **General:**
 
 * Classes can contain:
   * Static Data Members
