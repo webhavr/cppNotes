@@ -61,10 +61,10 @@
     *   **Dissimilar:**
         *   It is copyable if the object inside is copyable, while `std:unique_ptr` is non-copyable
         *   Doesn’t need a heap allocation, the object in the optional and the optional itself is all on the stack.
-        *   `absl::optional` CANNOT be forward declared since have to include the type in the optional. A forward declaration isn’t enough since the optional needs to know the size of the object
+        *   `absl::optional` CANNOT be used to forward declare since have to include the type in the optional. A forward declaration isn’t enough since the optional needs to know the size of the object
 
 
-### `base::scoped_refPtr<Foo>`:
+### `base::scoped_refPtr<Foo>`
 
 *   Use carefully! Refcounting is hard!
 *   It’s an owning smart pointer, so owns a pointer to something allocated in the heap
@@ -72,13 +72,21 @@
 *   **Chrome’s equivalent of `std::shared_ptr`:**
 
     *   Gives shared ownership of the underlying object, since it can be copied.
-    *   When all scoped_refptrs pointing to the same object are gone, that object gets destroyed
+    *   When all `scoped_refptrs` pointing to the same object are gone, that object gets destroyed
 
 *   **Differences with the `std::shared_ptr`:**
 
     *   `scoped_refptr` requires the ref counting happens in the object, where in shared_ptr it happens outside the object.
     * The ThreadSafe part of RefCountedThreadSafe is important because if there are `scoped_refptrs` to the same object on different threads, they could race and be wrong which can lead to a double free. With RefCountedThreadSafe, you get atomic refcounting, which makes it thread safe
 
+### `base::WeakPtr<Foo>` and `base::WeakPtrFactory<Foo>`
+
+*   Main purpose is for asynchronous work, which is most work in Chrome
+*   The issue with async work is that there isn’t a continuous stack frame. You can do work on a stack frame, you go away for a while and when you come back, the state of that stack frame is gone. 
+*   Any state you want to keep across tasks needs to be bound with the task, but that’s risky with pointers, as the use-after-free 
+*   `WeakPtrFactory` provides a side channel that watches the object and tells WeakPtr if the underlying object is still there.
+*   `WeakPtrFactory` watches the object and when the object is destroyed, the weakptrfactory inside of it is destroyed, and marks a bit
+*   When the asynchronous task comes back, and the `Weakptr` inside it comes back, if the `Weakptrfactory` is still present, it can continue the work, else not. 
 
 		
 		
