@@ -3,6 +3,11 @@
 [Constructor Destructor](./docs/Constructor%20Destructor.pdf)
 
 
+### Shallow and Deep Copy
+
+*   Deep Copy
+*   Imkage
+    *   ![Image](https://drive.google.com/file/d/1PFBd09oZyN7-NJq6GMLLoKwrotmjCJc0)
 
 ### Copy and Move Operators
 
@@ -28,7 +33,7 @@
 
 *   **Rule of Thumb - 1**
   
-    *   Construction and Assignment Pair
+    *   For a Construction and Assignment Pair
     *   You should always do the same thing to each one of these 2 pairs - Construction and Assignment
 
     ```
@@ -44,7 +49,7 @@
 
 *   **Rule of Thumb - 2** 
  
-    *   Copy and Move Pair
+    *   For a Copy and Move Pair
     *   You should always say what you are going to do with atleast one of them - either a copy pair, or a move pair
     *   If you say something about any one of the 2, the other pair is implicitly deleted.
     *   Frequent pattern in Chromium Code is to define the Copy Ops and don't say anything about the Move Ops, which means they are implicity deleted. 
@@ -62,3 +67,29 @@
         C(C&&) = default;               // Copyable
         C& operator = (C&&) = delete;   // Not Movable
     ```
+
+*   **Example**
+    *   Make the class copyable.
+
+    ```
+    C(const C&) = default;             // Copyable
+    C& operator = (const C&) = default;
+    // (Remember, move ops are implicitly deleted now!)
+    ```
+
+*   **Movable**
+    *   Means - Copyable with an assumption
+    *   Copyable, but assumes source won't be read again before destruction
+    *   Source is not destructed on move, but the assumption is that source won't be used anymore later until its destruction. 
+  
+    *   Need of Moves - 
+
+        1. Only one copy exists at any give time:
+           *   A move only type like unique pointer ensures that only one copy of the object exists at any given time, and the old one gets destroyed. 
+           *   Such object can only be moved and cannot be copied. 
+
+        2.    Assuming the source is not usable anymore, some times the moves can be more efficient than the copy itself
+
+*   **Suggestions**
+    *   Use `= default`, but
+        *   It uses shallow copy of pointer members
