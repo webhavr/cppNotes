@@ -4,6 +4,50 @@
 
 Sample Image - ![Image](https://drive.google.com/uc?id=)
 
+## Links
+
+| Description | Link                                                                                                                                                              |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Video       | [Link](https://www.youtube.com/watch?v=ZoMkfOK-xKM )                                                                                                              |
+| PPT         | [Link](https://docs.google.com/presentation/d/1aW5UvMqr7nIeWDMVlXh0It4pit8MBMlwfp1OcgwH9Zg/edit?resourcekey=0-w-NXIU6M8dxTngKHJxPOgw#slide=id.gd01c13137e_0_202 ) |
+  
+
+### L-Value and R-Value
+
+*   **L-Value**
+    *   An object that occupies some identifiable location in memory is an L-value
+  
+*   **R-Value**
+    *   An object that is not an L-value is an R-value
+
+*   **Examples**
+
+    ```
+    int x = 3;  // x is an l-value
+    foo(x);     // This is an r-value
+
+    int& x;     // x is an lvalue, with type
+                // “reference to l- or r-value int”
+
+    int&& x;    // x is an lvalue, with type
+                // “reference to rvalue int”
+
+    int i;
+    void func(int&& x);
+    func(i);    // Won’t compile, i is not r-value, 
+                //while the function expects an r-value
+    ```
+
+*   **Curious**
+  
+    *   Single Ampr can match to L-value or R-Value
+    *   Double Ampr matches only to R-Value
+  
+    ```
+        C & - can bind to both l-value and r-value
+        C&& - can only bind to r-value
+    ```
+
 ### Shallow and Deep Copy
 
 *   **Main Points**
@@ -89,7 +133,7 @@ Sample Image - ![Image](https://drive.google.com/uc?id=)
     *  Hence, we
        *  CANNOT Construct a new object from an existing object
             *   Not Allowed -> `C c1(c2);`
-       *  CANNOT Create a new object by assigning from existing object
+       *  CANNOT Create a new object by assigning from an existing object
             *   Not Allowed -> `C c1 = c2;`
 
     *   
@@ -122,6 +166,14 @@ Sample Image - ![Image](https://drive.google.com/uc?id=)
 
         2.    Assuming the source is not usable anymore, some times the moves can be more efficient than the copy itself
 
-*   **Suggestions**
-    *   Use `= default`, but
-        *   It uses shallow copy of pointer members
+
+### `std::move`
+    
+*   Casts an L-value into an R-value
+*   In actual, it does not move anything
+*   Makes things eligible for move operations
+*   Would-have-been-more-accurate `std::rvalue_cast<T>()`
+*   DOES NOT generate any code
+*   IT asserts to the compiler that the argument inside `std:move(x)` is not read again before destruction - exactly how we had defined Movable above.
+*   `std:move()` is not helpful unless we actually need to convert an l-value into an r-value
+
