@@ -89,7 +89,7 @@ Sample Image - ![Image](https://drive.google.com/uc?id=)
     *  Hence, we
        *  CANNOT Construct a new object from an existing object
             *   Not Allowed -> `C c1(c2);`
-       *  CANNOT Create a new object by copying another existing object
+       *  CANNOT Create a new object by assigning from existing object
             *   Not Allowed -> `C c1 = c2;`
 
     *   
