@@ -88,9 +88,9 @@ Sample Image - ![Image](https://drive.google.com/uc?id=)
     *  When we do this, we are literally disabling both the Copy Operations - Construction and Assignment
     *  Hence, we
        *  CANNOT Construct a new object from an existing object
-            Not Allowed -> `C c1(c2);`
+            *   Not Allowed -> `C c1(c2);`
        *  CANNOT Create a new object by copying another existing object
-            Not Allowed -> `C c1 = c2;`
+            *   Not Allowed -> `C c1 = c2;`
 
     *   
     ```
