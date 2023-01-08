@@ -81,6 +81,7 @@
 
 ### `base::WeakPtr<Foo>` and `base::WeakPtrFactory<Foo>`
 
+*   Non-Owning Safe Pointer
 *   Main purpose is for asynchronous work, which is most work in Chrome
 *   The issue with async work is that there isn’t a continuous stack frame. You can do work on a stack frame, you go away for a while and when you come back, the state of that stack frame is gone. 
 *   Any state you want to keep across tasks needs to be bound with the task, but that’s risky with pointers, as the use-after-free 
@@ -90,6 +91,7 @@
 
 ### `base::SafeRef<Foo>`
 
+*   Non-Owning Safe Pointer
 *   Use when you want to guarantee that Foo exists and is valid
 *   If the assumption that the object is valid is broken, then the process is guaranteed to terminate safely and make a crash report. That’s not ideal, but it’s better than a security bug and ensures we hear about the bug.
 *   Makes human understanding easier because it reduces possible code branches. Instead of Foo being either null or non-null, it’s always non-null and reduces the number of states your code can be in. Always prefer fewer states.
@@ -106,14 +108,22 @@
 
 
 ### `raw_ptr<Foo>`
+*   Difference from `NativePtr`
+*   Non-Owning Smart Pointer
 *   Use when you have a pointer as a class member (unless one of the other types has features you’re looking for)
-Keeps a reference count in the memory allocator (Chrome’ has its own called PartitionAlloc)
-*   If the object is deleted, the allocator will ‘poison’ the memory that object occupied and keep the memory around so it’s not reused, while there is a raw_ptr pointing to it. This reduces the risk/impact of a use-after-free bug.
-*   These currently aren’t turned on outside the browser process, but you should use them any time you have class members in the browser process, including in code that is used in multiple processes.
-*   These have weak refcounting, unlike scoped_refptr which is strong refcounting
-*   A strong refcount means the refcount owns the object. When the count goes to 0, the object gets deleted 
-*   This weak refcount keeps the memory allocated, but doesn’t keep the object in the memory alive, so they don’t affect the behaviour of the code
-These can exist at the same time (e.g. a raw_ptr to an object owned by scoped_refptr).
+*   Keeps a reference count in the memory allocator (Chrome’ has its own called PartitionAlloc) - Weak Reference count - like the Weak Pointer - since it is not owning.
+*   If the object is deleted, the **allocator** will ‘poison’ the memory that object occupied and keep the memory around so it’s not reused, while there is a raw_ptr pointing to it. This reduces the risk/impact of a use-after-free bug.
+*   Even if we use the `raw_ptr`, there is dead data there and this memory location can't be used by someone else. 
+*   So if `raw_ptr` is used incorrectly, it will NOT crash and it will NOT create a security vulnerability as the memory location CANNOT be exploited. 
+
+### `raw_ref<Foo>`
+*   Similar to `raw_ptr` but this can't be null
+
+### Memory Safety in C++
+*   Why Rust is a good next step
+*   Rust treats pointers exclusively as references
+*   There is this whole class of bugs that can't happen due to ownership in Rust
+*   Rust requires you to tell the compiler the relationships between lifetime of references - and that results in a lot of memory safety. 
 	
 		
 		
