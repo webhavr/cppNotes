@@ -119,7 +119,7 @@
 ### `raw_ref<Foo>`
 *   Similar to `raw_ptr` but this can't be null
 
-### Memory Safety in C++
+### Memory Safety
 *   Why Rust is a good next step
 *   Rust treats pointers exclusively as references
 *   There is this whole class of bugs that can't happen due to ownership in Rust
