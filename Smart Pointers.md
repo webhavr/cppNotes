@@ -26,6 +26,38 @@
     *   As fields in objects, since these are the ones that tend to lead to use-after-frees
     *   To express ownership - when ownership gets passed around, this is very difficult to do correctly. If you have to do this, use a std::unique_ptr
 
+## Types of smart pointers and pointer like objects
+
+### `std::unique_ptr<Foo>`
+
+*   This expresses unique ownership to an object in the heap
+*   Holds your pointer and deletes it when it goes out of scope
+*   Can’t be copied, because it’s unique ownership, but it can be moved
+*   Is the size of a pointer, the object it points to lives elsewhere in the heap
+
+### `absl::optional<Foo>`
+
+*   Use when you want to return a value when 
+    *   either there’s no value to give back
+    *   or, in case of an error
+
+*   **Idea**
+    *   This is more clear than using a native pointer and bool to express the same thing
+
+*   This type is a pointer-like object because it provides the -> and * operators, even though it holds an object inside of it by value, rather than a pointer
+  
+*   **Size:**
+    *   That means the object is held in the space allocated for the optional
+    *   the size of the optional is the size of the thing it’s holding, plus a flag.
+
+*   **Comparison with the `std::unique_ptr<>`**:
+    
+    *   Similar to a std::unique_ptr because it uniquely holds that object
+    
+    *   **Dissimilar:**
+        *   It is copyable if the object inside is copyable, while `std:unique_ptr` is non-copyable
+        *   Doesn’t need a heap allocation, the object in the optional and the optional itself is all on the stack.
+        *   `absl::optional` CANNOT be forward declared since have to include the type in the optional. A forward declaration isn’t enough since the optional needs to know the size of the object
 
 
 		
