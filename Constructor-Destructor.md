@@ -28,7 +28,8 @@
 
 *   **Rule of Thumb - 1**
   
-    *   Construction and Assignment - always do the same thing to each one of those
+    *   Construction and Assignment Pair
+    *   You should always do the same thing to each one of these 2 pairs - Construction and Assignment
 
     ```
         // Construction
@@ -43,6 +44,7 @@
 
 *   **Rule of Thumb - 2** 
  
+    *   Copy and Move Pair
     *   You should always say what you are going to do with atleast one of them - either a copy pair, or a move pair
     *   If you say something about any one of the 2, the other pair is implicitly deleted.
     *   Frequent pattern in Chromium Code is to define the Copy Ops and don't say anything about the Move Ops, which means they are implicity deleted. 
@@ -50,8 +52,8 @@
     ```
         // Copy Ops
 
-        C(const C&) = delete;               // Not copyable
-        C& operator = (const C&) = delete;  // (or movable)
+        C(const C&) = delete;              // Not copyable
+        C& operator = (const C&) = delete; // (or movable)
     ```
 
     ```
