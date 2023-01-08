@@ -14,3 +14,9 @@
 
 ### General
 *   It is a convenient way of defining an anonymous function object (a closure) right at the location where it's invoked or passed as an argument to a function
+*   Typically lambdas are used to encapsulate a few lines of code that are passed to algorithms or asynchronous functions
+
+### Parts of a Lambda
+
+* Image
+    ![Image](https://drive.google.com/uc?id=18vW5rDCYF6NQ8z_WqOkNqg66mLFWOL0Q)
