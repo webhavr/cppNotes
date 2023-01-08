@@ -37,14 +37,18 @@
 
 ### `absl::optional<Foo>`
 
+*   CPP Ref Link - [Link](https://www.cppstories.com/2018/05/using-optional/)
+
 *   Use when you want to return a value when 
     *   either there’s no value to give back
     *   or, in case of an error
+    *   By adding the boolean flag to other types, you can achieve a thing called “nullable types”. The flag is used to indicate whether the value is available or not.
 
 *   **Idea**
     *   This is more clear than using a native pointer and bool to express the same thing
 
-*   This type is a pointer-like object because it provides the -> and * operators, even though it holds an object inside of it by value, rather than a pointer
+*   **Concept**
+    *   This type is a pointer-like object because it provides the -> and * operators, even though it holds an object inside of it by value, rather than a pointer
   
 *   **Size:**
     *   That means the object is held in the space allocated for the optional
@@ -58,6 +62,22 @@
         *   It is copyable if the object inside is copyable, while `std:unique_ptr` is non-copyable
         *   Doesn’t need a heap allocation, the object in the optional and the optional itself is all on the stack.
         *   `absl::optional` CANNOT be forward declared since have to include the type in the optional. A forward declaration isn’t enough since the optional needs to know the size of the object
+
+
+### `base::scoped_refPtr<Foo>`:
+
+*   Use carefully! Refcounting is hard!
+*   It’s an owning smart pointer, so owns a pointer to something allocated in the heap
+  
+*   **Chrome’s equivalent of `std::shared_ptr`:**
+
+    *   Gives shared ownership of the underlying object, since it can be copied.
+    *   When all scoped_refptrs pointing to the same object are gone, that object gets destroyed
+
+*   **Differences with the `std::shared_ptr`:**
+
+    *   `scoped_refptr` requires the ref counting happens in the object, where in shared_ptr it happens outside the object.
+    * The ThreadSafe part of RefCountedThreadSafe is important because if there are `scoped_refptrs` to the same object on different threads, they could race and be wrong which can lead to a double free. With RefCountedThreadSafe, you get atomic refcounting, which makes it thread safe
 
 
 		
