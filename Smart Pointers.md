@@ -84,10 +84,36 @@
 *   Main purpose is for asynchronous work, which is most work in Chrome
 *   The issue with async work is that there isn’t a continuous stack frame. You can do work on a stack frame, you go away for a while and when you come back, the state of that stack frame is gone. 
 *   Any state you want to keep across tasks needs to be bound with the task, but that’s risky with pointers, as the use-after-free 
-*   `WeakPtrFactory` provides a side channel that watches the object and tells WeakPtr if the underlying object is still there.
+*   `WeakPtrFactory` provides a side channel that watches the object and tells `WeakPtr` if the underlying object is still there.
 *   `WeakPtrFactory` watches the object and when the object is destroyed, the weakptrfactory inside of it is destroyed, and marks a bit
 *   When the asynchronous task comes back, and the `Weakptr` inside it comes back, if the `Weakptrfactory` is still present, it can continue the work, else not. 
 
-		
+### `base::SafeRef<Foo>`
+
+*   Use when you want to guarantee that Foo exists and is valid
+*   If the assumption that the object is valid is broken, then the process is guaranteed to terminate safely and make a crash report. That’s not ideal, but it’s better than a security bug and ensures we hear about the bug.
+*   Makes human understanding easier because it reduces possible code branches. Instead of Foo being either null or non-null, it’s always non-null and reduces the number of states your code can be in. Always prefer fewer states.
+*   Built on top of WeakPtr, so it does require a WeakPtrFactory to be present, but its purpose is not the same. 
+
+*   **Differences between `SafeRef` and `WeakPtr`**
+    *   `SafeRef` can't be null
+    *   Can't observe whether the object is alive or not
+  
+*   **Advantage of `SafeRef` over `WeakPtr`**
+    *   Gives the option to guarantee that the pointer is valid here, and there is no need to check it like a weak pointer. This helps to reduce the total number of states a program can be in
+    *   Even if it is not valid, it will not generate a security bug and the crash should be fixed somewhere else
+
+
+
+### `raw_ptr<Foo>`
+*   Use when you have a pointer as a class member (unless one of the other types has features you’re looking for)
+Keeps a reference count in the memory allocator (Chrome’ has its own called PartitionAlloc)
+*   If the object is deleted, the allocator will ‘poison’ the memory that object occupied and keep the memory around so it’s not reused, while there is a raw_ptr pointing to it. This reduces the risk/impact of a use-after-free bug.
+*   These currently aren’t turned on outside the browser process, but you should use them any time you have class members in the browser process, including in code that is used in multiple processes.
+*   These have weak refcounting, unlike scoped_refptr which is strong refcounting
+*   A strong refcount means the refcount owns the object. When the count goes to 0, the object gets deleted 
+*   This weak refcount keeps the memory allocated, but doesn’t keep the object in the memory alive, so they don’t affect the behaviour of the code
+These can exist at the same time (e.g. a raw_ptr to an object owned by scoped_refptr).
+	
 		
 		
