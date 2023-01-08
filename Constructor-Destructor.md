@@ -82,6 +82,24 @@ Sample Image - ![Image](https://drive.google.com/uc?id=)
         C& operator = (C&&) = delete;   // Not Movable
     ```
 
+*   **Not Copyable Nor Assignable**
+
+    *  Disable both the Copy Operations
+    *  When we do this, we are literally disabling both the Copy Operations - Construction and Assignment
+    *  Hence, we
+       *  CANNOT Construct a new object from an existing object
+            Not Allowed -> `C c1(c2);`
+       *  CANNOT Create a new object by copying another existing object
+            Not Allowed -> `C c1 = c2;`
+
+    *   
+    ```
+        // Disabling the Copy Ops
+
+        C(const C&) = delete;              // Not copyable
+        C& operator = (const C&) = delete; // (Nor Assignable)
+    ```
+
 *   **Example**
     *   Make the class copyable.
 
