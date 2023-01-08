@@ -2,12 +2,26 @@
 
 [Constructor Destructor](./docs/Constructor%20Destructor.pdf)
 
+Sample Image - ![Image](https://drive.google.com/uc?id=)
 
 ### Shallow and Deep Copy
 
-*   Deep Copy
-*   Imkage
-    *   ![Image](https://drive.google.com/file/d/1PFBd09oZyN7-NJq6GMLLoKwrotmjCJc0)
+*   **Main Points**
+
+    *   **Shallow Copy**
+        *   The two copies contain references to the same value in memory
+        *   Faster
+  
+    *   **Deep copy**
+        *   We copy each field from the original to the copy, but as we do so, we perform a deep copy of those instead of just copying the references
+        *   Slower
+
+*   **Shallow Copy**
+*   ![Image](https://drive.google.com/uc?id=1Yg5QfEG_MX7TxkphsSORP68goeTn4wmK)
+
+*   **Deep Copy**
+*   ![Image](https://drive.google.com/uc?id=1jZxRBJJ4DUq_0BIXnQ0i-FAzSWuZzt0a)
+
 
 ### Copy and Move Operators
 
