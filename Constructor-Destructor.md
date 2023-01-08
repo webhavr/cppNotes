@@ -175,6 +175,6 @@ Sample Image - ![Image](https://drive.google.com/uc?id=)
 *   Makes things eligible for move operations
 *   Would-have-been-more-accurate `std::rvalue_cast<T>()`
 *   DOES NOT generate any code
-*   IT asserts to the compiler that the argument inside `std:move(x)` is not read again before destruction - exactly how we had defined Movable above.
+*   It asserts to the compiler that the argument inside `std:move(x)` is not read again before destruction - exactly how we had defined Movable above.
 *   `std:move()` is not helpful unless we actually need to convert an l-value into an r-value
 
