@@ -22,7 +22,7 @@
 *  **Usage:**
 
    * `default`
-     * You can explicitly declare a default special member function by using the = default keyword.
+     * You can explicitly declare a default special member function by using the `= default` keyword.
      * This causes the compiler to define the function only if needed, in the same way as if the function was not declared at all.
   
    * `delete`
@@ -34,6 +34,11 @@
   * If you have declared only a constructor that takes parameters, code that attempts to call a default constructor causes the compiler to produce an error message.
 
 ### Explicit Default and Delete
+
+| Description | Link                                                                                                       |
+| ----------- | ---------------------------------------------------------------------------------------------------------- |
+| Msft        | [Link](https://learn.microsoft.com/en-us/cpp/cpp/explicitly-defaulted-and-deleted-functions?view=msvc-170) |
+
 
 * Explicitly Defaulted and deleted functions give you explicit control over whether the special member functions are automatically generated.
 
