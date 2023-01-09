@@ -76,7 +76,7 @@
     *  they have a complex syntax
     *  limited as Binding not available
 
-### Callbacks
+### Binding Callbacks
 
 *   OnceCallback - Meant to run once
 *   RepeatingCallback - Meant to run more than once
