@@ -1,6 +1,7 @@
 # Constructor Destructor
 
-[Constructor Destructor](./docs/Constructor%20Destructor.pdf)
+[Constructor Destructor](https://drive.google.com/uc?id=1go_6sfxajDvqBAvp-aCjSb7w21wBetQr)
+
 
 Sample Image - ![Image](https://drive.google.com/uc?id=)
 
