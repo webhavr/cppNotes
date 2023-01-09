@@ -157,6 +157,5 @@
         // Creating the Callback
         const auto cb = base::BindRepeating(&C::Func, &my_c, 1);
 
-        // A bit tricky signature
         cb.Run();  // Like calling my_c->Func(1);
     ```
